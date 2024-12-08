@@ -1,5 +1,6 @@
 package com.snap_fetch_kmp
 
+import com.snap_fetch_kmp.presentation.viewmodel.PhotoDetailsViewModel
 import com.snap_fetch_kmp.presentation.viewmodel.PhotosListViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
@@ -19,9 +20,13 @@ actual fun platformModule() = module {
     factory {
         PhotosListViewModel(get())
     }
+    factory {
+        PhotoDetailsViewModel(get())
+    }
 }
 
 object ViewModelProvider : KoinComponent {
     fun getPhotosListViewModel() = get<PhotosListViewModel>()
+    fun getPhotoDetailsViewModel() = get<PhotoDetailsViewModel>()
 }
 

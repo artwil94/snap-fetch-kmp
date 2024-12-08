@@ -1,4 +1,4 @@
-package com.snap_fetch_kmp.android
+package com.snap_fetch_kmp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

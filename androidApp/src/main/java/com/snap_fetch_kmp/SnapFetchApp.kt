@@ -1,4 +1,4 @@
-package com.snap_fetch_kmp.android
+package com.snap_fetch_kmp
 
 import android.app.Application
 import com.snap_fetch_kmp.core.di.initKoin

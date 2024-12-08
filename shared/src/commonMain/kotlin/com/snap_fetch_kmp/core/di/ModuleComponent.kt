@@ -2,8 +2,8 @@ package com.snap_fetch_kmp.core.di
 
 import com.snap_fetch_kmp.data.remote.ApiService
 import com.snap_fetch_kmp.data.remote.ApiServiceProvider
-import com.snap_fetch_kmp.domain.interactor.PhotoRepository
-import com.snap_fetch_kmp.domain.interactor.PhotoRepositoryImpl
+import com.snap_fetch_kmp.domain.interactor.PhotosRepository
+import com.snap_fetch_kmp.domain.interactor.PhotosRepositoryImpl
 import com.snap_fetch_kmp.platformModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
@@ -14,8 +14,8 @@ val sharedModule = module {
         ApiServiceProvider()
     }
 
-    single<PhotoRepository> {
-        PhotoRepositoryImpl(get())
+    single<PhotosRepository> {
+        PhotosRepositoryImpl(get())
     }
 }
 

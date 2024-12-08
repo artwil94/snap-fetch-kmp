@@ -9,46 +9,41 @@ import com.snap_fetch_kmp.domain.interactor.PhotosRepository
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class PhotosListViewModel(
+class PhotoDetailsViewModel(
     private val repository: PhotosRepository,
 ) : ViewModel() {
 
     private val _uiState =
-        MutableStateFlow(viewModelScope, PhotosUIState())
+        MutableStateFlow(viewModelScope, PhotoDetailsUIState())
 
     @NativeCoroutinesState
     val uiState = _uiState.asStateFlow()
-
-    val actions = PhotosActions(
-        start = {
-            getPhotos()
-        },
-        loadMore = {
-            getPhotos()
-        },
-        onTryAgain = { getPhotos() },
-        onClose = { resetError() }
+    val actions = PhotoDetailsActions(
+        start = ::getPhotoDetails,
+        onClose = ::resetError
     )
-    private var currentPage = 1
 
-    private fun getPhotos() {
-        _uiState.update { it.copy(isLoading = true) }
+    private fun getPhotoDetails(photoId: String) {
         viewModelScope.launch {
-            val response = repository.getPhotos(page = currentPage, limit = PHOTOS_LIMIT)
+            _uiState.update {
+                it.copy(
+                    error = false,
+                    isLoading = true
+                )
+            }
+            val response = repository.getPhotoDetails(photoId = photoId)
             if (response.isSuccess) {
-                val newPhotos = response.value() ?: emptyList()
                 _uiState.update {
                     it.copy(
-                        photos = uiState.value.photos + newPhotos,
+                        photo = response.value(),
                         isLoading = false,
                         error = false
                     )
                 }
-                currentPage++
             } else {
                 _uiState.update {
                     it.copy(
-                        photos = listOf(),
+                        photo = null,
                         error = true,
                         isLoading = false
                     )
@@ -65,21 +60,15 @@ class PhotosListViewModel(
         }
     }
 
-    companion object {
-        const val PHOTOS_LIMIT = 20
-    }
 }
 
-
-data class PhotosActions(
-    val start: () -> Unit,
-    val loadMore: () -> Unit,
-    val onTryAgain: () -> Unit,
+data class PhotoDetailsActions(
+    val start: (photoId: String) -> Unit = {},
     val onClose: () -> Unit
 )
 
-data class PhotosUIState(
+data class PhotoDetailsUIState(
     val isLoading: Boolean = true,
     val error: Boolean = false,
-    val photos: List<Photo> = listOf(),
+    val photo: Photo? = null
 )

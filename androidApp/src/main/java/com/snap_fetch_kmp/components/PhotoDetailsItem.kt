@@ -3,14 +3,14 @@ package com.snap_fetch_kmp.components
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -21,8 +21,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.snap_fetch_kmp.android.R
 import com.snap_fetch_kmp.theme.SfTheme
 
+@ExperimentalLayoutApi
 @Composable
-fun PhotoDetailItem(
+fun PhotoDetailsItem(
     modifier: Modifier = Modifier,
     value: String,
     subtitle: String,
@@ -32,9 +33,8 @@ fun PhotoDetailItem(
     clickableValue: Boolean = false,
     onValueClick: () -> Unit = {}
 ) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+    FlowRow(
+        modifier = Modifier.fillMaxWidth()
     ) {
         Icon(
             modifier = modifier.size(SfTheme.dimensions.photoDetailIconSize),
@@ -56,7 +56,7 @@ fun PhotoDetailItem(
         Text(
             modifier = Modifier
                 .clickable(onClick = { onValueClick.invoke() }, enabled = clickableValue)
-                .padding(start = SfTheme.dimensions.paddingS),
+                .padding(start = SfTheme.dimensions.paddingL),
             text = value,
             style = textStyle,
             color = Color.White,
@@ -65,10 +65,11 @@ fun PhotoDetailItem(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Preview
 @Composable
 private fun PhotoDetailItemPreview() {
-    PhotoDetailItem(
+    PhotoDetailsItem(
         value = "Artur Wilczek",
         icon = R.drawable.ic_author,
         textStyle = SfTheme.typography.author,

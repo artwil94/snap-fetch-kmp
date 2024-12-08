@@ -3,7 +3,7 @@ package com.snap_fetch_kmp.data.remote.photos
 import com.snap_fetch_kmp.data.remote.photos.dto.PhotoDto
 import com.snap_fetch_kmp.getHttpClient
 import com.snap_fetch_kmp.util.Constants
-import com.snap_fetch_kmp.util.KResult
+import com.snap_fetch_kmp.util.ResponseState
 import com.snap_fetch_kmp.util.runSafely
 import de.jensklingenberg.ktorfit.Ktorfit
 import de.jensklingenberg.ktorfit.ktorfit
@@ -40,10 +40,19 @@ class PhotosApiProvider {
     suspend fun getPhotos(
         page: Int,
         limit: Int
-    ): KResult<List<PhotoDto>> {
+    ): ResponseState<List<PhotoDto>> {
         return runSafely {
             val response = photosAPI.getPhotos(page = page, limit = limit)
-            return KResult.success(response)
+            return ResponseState.success(response)
+        }
+    }
+
+    suspend fun getPhotoDetails(
+        photoId: String
+    ): ResponseState<PhotoDto> {
+        return runSafely {
+            val response = photosAPI.getPhotoDetails(photoId = photoId)
+            return ResponseState.success(response)
         }
     }
 }
