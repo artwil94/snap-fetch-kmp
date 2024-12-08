@@ -15,6 +15,13 @@ ksp = "2.0.21-1.0.25"
 ktorfit-plugin = "2.1.0"
 commonsConfiguration2 = "2.10.1"
 multiplatformSettings = "1.1.1"
+kmpObservableviewmodelCore = "1.0.0-BETA-3"
+nativecoroutinesVersion = "1.0.0-ALPHA-31"
+timberVersion = "5.0.1"
+kotlinxSerializationJsonVersion = "1.7.3"
+composeNavigation = "2.8.4"
+coil = "2.7.0"
+lottieCompose = "6.1.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -45,6 +52,12 @@ koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 commons-configuration2 = { module = "org.apache.commons:commons-configuration2", version.ref = "commonsConfiguration2" }
 multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatformSettings" }
 multiplatform-settings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatformSettings" }
+kmp-observableviewmodel-core = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core", version.ref = "kmpObservableviewmodelCore" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timberVersion" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJsonVersion" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -56,6 +69,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit-plugin" }
+nativecoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativecoroutinesVersion" }
 
 [bundles]
 ktor = [

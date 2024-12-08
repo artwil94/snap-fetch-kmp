@@ -1,8 +1,8 @@
 package com.snap_fetch_kmp.data.remote.photos
 
-import com.snap_fetch_kmp.data.remote.createPhotosAPI
 import com.snap_fetch_kmp.data.remote.photos.dto.PhotoDto
 import com.snap_fetch_kmp.getHttpClient
+import com.snap_fetch_kmp.util.Constants
 import com.snap_fetch_kmp.util.KResult
 import com.snap_fetch_kmp.util.runSafely
 import de.jensklingenberg.ktorfit.Ktorfit
@@ -18,7 +18,7 @@ import kotlinx.serialization.json.Json
 class PhotosApiProvider {
 
     private val ktorfit: Ktorfit = ktorfit {
-        baseUrl("BuildKonfig.APIGEE_BASE_URL")
+        baseUrl(Constants.BASE_URL)
         httpClient(getHttpClient {
             expectSuccess = true
             install(ContentNegotiation) {

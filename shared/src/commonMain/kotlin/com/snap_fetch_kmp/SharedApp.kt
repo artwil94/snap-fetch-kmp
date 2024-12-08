@@ -7,7 +7,6 @@ class SharedApp {
     companion object {
         fun initKMMDebugLogs() {
             Napier.base(DebugAntilog())
-            Napier.d("KMM Logs enabled successfully!")
         }
     }
 }

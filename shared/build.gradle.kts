@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.nativecoroutines)
 }
 
 kotlin {
@@ -41,6 +42,7 @@ kotlin {
             implementation(libs.bundles.ktor)
             implementation(libs.multiplatform.settings.serialization)
             implementation(libs.multiplatform.settings.coroutines)
+            api(libs.kmp.observableviewmodel.core)
         }
 
         androidMain.dependencies {

@@ -49,4 +49,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.koin.androidx.compose)
     implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.timber)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.lottie.compose)
 }
