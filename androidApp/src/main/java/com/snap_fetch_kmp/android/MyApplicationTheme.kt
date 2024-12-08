@@ -1,4 +1,4 @@
-package com.example.snap_fetch_kmp.android
+package com.snap_fetch_kmp.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

@@ -1,4 +1,4 @@
-package com.example.snap_fetch_kmp
+package com.snap_fetch_kmp
 
 class Greeting {
     private val platform: Platform = getPlatform()

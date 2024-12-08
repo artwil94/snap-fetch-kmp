@@ -5,4 +5,16 @@ plugins {
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.compose.compiler).apply(false)
+    alias(libs.plugins.kotlinx.serialization).apply(false)
+}
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath(libs.kotlin.serialization)
+        classpath(libs.commons.configuration2)
+    }
 }
