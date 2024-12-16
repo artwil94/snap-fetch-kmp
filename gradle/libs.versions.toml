@@ -19,9 +19,11 @@ kmpObservableviewmodelCore = "1.0.0-BETA-3"
 nativecoroutinesVersion = "1.0.0-ALPHA-31"
 timberVersion = "5.0.1"
 kotlinxSerializationJsonVersion = "1.7.3"
-composeNavigation = "2.8.4"
+composeNavigation = "2.8.5"
 coil = "2.7.0"
 lottieCompose = "6.1.0"
+mockkVersion = "1.12.4"
+kotlinxCoroutinesTestVersion = "1.9.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -58,6 +60,8 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTestVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
